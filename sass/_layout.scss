@@ -1,0 +1,110 @@
+.container {
+  max-width: 120rem; //the container can decrease if it cannot display fully
+  margin: 8rem auto;
+  background-color: var(--color-grey-light-2);
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+
+  min-height: 50rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    //breakpoint at 1200px
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.header {
+  font-size: 1.4rem;
+  height: 7rem;
+  background-color: #fff;
+  border-bottom: var(--line);
+
+  display: flex;
+  justify-content: space-between; //horiznotally align
+  align-items: center;
+
+  @media only screen and (max-width: $bp-smallest) {
+    //breakpoint at 500px
+    flex-wrap: wrap;
+    height: 12rem;
+    align-content: space-around;
+    //multiline flex elements can get aligned only using
+    //align-content
+  }
+}
+
+////FLEX PARENT CONTAINER/////////////
+.content {
+  display: flex;
+  flex-direction: row; //default
+
+  @media only screen and (max-width: $bp-medium) {
+    //breakpoint at 900px
+    flex-direction: column;
+  }
+}
+//Flex element1
+.sidebar {
+  background-color: var(--color-grey-dark-1);
+
+  flex: 0 0 18%; // --> shorthand flex: grow shrink basis;
+  //Dont want it to grow if there is more space flex: 0;
+  //We also don't want it to shrink if there is not enough space flex:0 0;
+  //We always want to keep it at 18% width of the parent container flex: 0 0 18%
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+//Flex element2
+.hotel-view {
+  background-color: #fff;
+  flex: 1;
+}
+//////////////////////////////////////@
+
+.detail {
+  display: flex;
+  font-size: 1.4rem;
+  padding: 4.5rem;
+  background-color: var(--color-grey-light-1);
+  border-bottom: var(--line);
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+}
+//Children of the class .detail
+.description {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  flex: 0 0 60%;
+  margin-right: 4.5rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    margin: 5rem 6rem 5rem 2rem;
+  }
+}
+.user-reviews {
+  flex: 1; //-> makes it occupy remaining space
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (max-width: $bp-small) {
+    align-self: center;
+    margin: 5rem 6rem 5rem 2rem;
+  }
+}
